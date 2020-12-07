@@ -5,12 +5,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Contact Manager</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
   <script src="/javascripts/jquery.js"></script>
   <script src="/javascripts/handlebars.js"></script>
 </head>
 <body>
+  <header class="cm-header">
+    <div class="cm-header__container">
+      <h1 class="cm-header__title">Contact Manager</h1>
+      <p class="cm-header__description">JS239 Practice Project</p>
+    </div>
+  </header>
+  <main>
+    <div class="menu">
+      <button id="addContactBtn">Add Contact</button>
+      <input type="text" name="" id="searchBar" placeholder="Search for a contact">
+    </div>
+    <div class="contact-list"></div>
+    <div class="search-results"></div>
+  </main>
 
+  <div class="modal-container" id="modal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Create Contact</h3>
+      </div>
+      <div class="modal-content">
+        <form action="" class="modal-form">
+          <div>
+            <label for="full_name">Name</label>
+            <input type="text" id="full_name">
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email">
+          </div>
+          <div>
+            <label for="phone_number">Phone Number</label>
+            <input type="text" id="phone_number">
+          </div>
+          <div>
+            <label for="tags">Tags</label>
+            <input type="text" id="tags">
+          </div>
+          <div>
+            <input type="submit" value="Submit" class="submit-btn">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script id="contactListTemplate" type="text/x-handlebars">
+    <ul class="contact-list">
+      {{each contacts}}
+      {{> contactPartial}}
+      {{else}}
+      <li>
+        <strong>There are no contacts.</strong>
+      </li>
+      {{/each}}
+    </ul>
+  </script>
+
+  <script id="contactPartial" type="text/x-handlebars">
+    <li class="contact-card">
+      <h3>{{full_name}}</h3>
+      <dl>
+        <dt>Phone Number:</dt>
+        <dd>{{phone_number}}</dd>
+        <dt>Email:</dt>
+        <dd>{{email}}</dd>
+        <dt>Tags:</dt>
+        <dd>{{tags}}</dd>
+      </dl>
+    </li>
+  </script>
   <script src="/javascripts/datastore.js"></script>
+  <script src="/javascripts/view.js"></script>
   <script src="/javascripts/app.js"></script>
 </body>
 </html>

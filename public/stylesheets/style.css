@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
+:root {
+  --modal-duration: 1s;
+  --primary-color: #83c1cc;
+  --secondary-color: #40e9bf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  margin: 0;
+  display: grid;
+  color: white;
+  background-color: var(--secondary-color);
+  justify-items: stretch;
+}
+
+header {
+  display: grid;
+  justify-items: center;
+  background-color: var(--primary-color);
+}
+
+.cm-header__container {
+  display: grid;
+  justify-items: center;
+}
+
+.menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1em;
+  background-color: var(--primary-color);
+}
+
+button {
+  background: var(--secondary-color);
+  color: white;
+  padding: 1em 2em;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 2px;
+  margin-bottom: 1rem;
+}
+
+button:hover {
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#searchBar {
+  margin-bottom: 1rem;
+}
+
+form > * {
+  padding: 1em;
+}
+form {
+  background-color: rgba(255, 255, 255, 0.5);
+}
