@@ -14,10 +14,31 @@
     "tags": "work,friend"
   },
   {
-    "id": 3,
-    "full_name": "Pete Hanson",
-    "email": "ph@example.com",
-    "phone_number": "54321098761",
-    "tags": null
+    "full_name": "Updated Babadi",
+    "phone_number": "123-4567",
+    "email": "sheila.babadi@yahoo.com",
+    "tags": "personal, family",
+    "id": 3
+  },
+  {
+    "full_name": "Sheila Babadi",
+    "phone_number": "123-4567",
+    "email": "sheila.babadi@yahoo.com",
+    "tags": "personal, family",
+    "id": 4
+  },
+  {
+    "full_name": "Sheila Babadi",
+    "phone_number": "123-4567",
+    "email": "sheila.babadi@yahoo.com",
+    "tags": "personal, family",
+    "id": 5
+  },
+  {
+    "full_name": "Sheila Babadi",
+    "phone_number": "123-4567",
+    "email": "sheila.babadi@yahoo.com",
+    "tags": "personal, family",
+    "id": 6
   }
 ]
