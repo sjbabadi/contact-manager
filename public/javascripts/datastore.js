@@ -20,7 +20,7 @@
     .catch(error => console.error('Error:', error));
   };
 
-  DataStore.prototype.getAll = function() {
+  DataStore.prototype.getAll = function(cb) {
     fetch(`${SERVER_URL}`)
     .then(res => {
       if(!res.ok) {
@@ -29,7 +29,7 @@
         return res.json();
       }
     })
-    .then(data => console.log(data))
+    .then(data => cb(data))
     .catch(error => console.error(error));
   };
 
