@@ -1,36 +1,42 @@
-(function(window) {
-  'use strict';
-  window.app = window.app || {};
-  const TagList = window.app.TagList;
-
-  function Contacts(storage) {
-    this.db = storage;
+class Contacts {
+  constructor(storage) {
+    this.storage = storage;
   }
 
-  Contacts.prototype.create = function(data, cb) {
-    let newContact = {
-      full_name: data.full_name,
-      email: data.email,
-      phone_number: data.phone_number,
-      id: data.id,
-      tags: data.tags,
-    };
-
-    this.db.add(newContact);
-
+  getContact(id) {
+    return this.storage.get(id);
   }
 
-  Contacts.prototype.read = function(query, cb) {
-    let q = typeof query;
+  getAllContacts() {
+    return this.storage.getAll();
+  }
 
+  removeContact(id) {
+    return this.storage.delete(id);
+  }
 
-    if(q === "function") {
-      console.log("hello");
-      this.db.getAll(query);
-    }
-  };
+  addContact(contactData) {
+    return this.storage.create(contactData);
+  }
 
-  
-  
-  window.app.Contacts = Contacts;
-})(window);
+  updateContact(id, data) {
+    return this.storage.update(id, data);
+  }
+
+  _matchesQuery(contact, query) {
+    for(let k in query) {
+      if(!contact[k].toLowerCase().includes(query[k].toLowerCase())) {
+        return false;
+      }
+     }
+     return true;
+  }
+  // query examples
+    // { full_name: 'Sam' }
+    // { tags: 'work' }
+  getFilteredContacts(query) {
+    return this.storage.getAll().then((data) => {
+        return data.filter((contact) => this._matchesQuery(contact, query));
+      });
+  }
+}

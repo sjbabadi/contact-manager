@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 
 :root {
-  --modal-duration: 1s;
   --primary-color: #83c1cc;
   --secondary-color: #40e9bf;
 }
@@ -38,9 +37,15 @@ header {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1em;
+  margin-bottom: 1em;
+}
+
+#searchBar {
+  padding: 1rem;
 }
 
 button,
+.cancel-btn,
 input[type="submit"] {
   background: var(--secondary-color);
   color: white;
@@ -48,10 +53,10 @@ input[type="submit"] {
   background-color: rgba(0, 255, 255, 0.5);
   border: none;
   border-radius: 2px;
-  margin-bottom: 1rem;
 }
 
 button:hover,
+.cancel-btn:hover,
 input[type="submit"]:hover {
   text-decoration: underline;
   background-color: rgba(0, 0, 0, 0.2);

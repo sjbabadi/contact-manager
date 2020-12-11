@@ -21,8 +21,9 @@
       <button id="addContactBtn">Add Contact</button>
       <input type="text" name="" id="searchBar" placeholder="Search for a contact">
     </div>
+    <div class="tag-container"></div>
     <div class="contact-list__container"></div>
-    <div class="search-results hidden"></div>
+    <div class="empty-search hidden"></div>
   </main>
 
   <div class="modal-container hidden" id="modal">
@@ -31,29 +32,26 @@
         <h3>Create Contact</h3>
       </div>
       <div class="modal-content">
-        <form action="" class="modal-form">
+        <form action="" class="modal-form" data-id="">
           <div>
             <label for="full_name">Name</label>
-            <input type="text" id="full_name" class="form-input">
+            <input type="text" id="full_name" name="full_name" class="form-input">
           </div>
           <div>
             <label for="email">Email</label>
-            <input type="email" id="email" class="form-input">
+            <input type="email" id="email" name="email" class="form-input">
           </div>
           <div>
             <label for="phone_number" >Phone Number</label>
-            <input type="text" id="phone_number" class="form-input">
+            <input type="text" id="phone_number" name="phone_number" class="form-input">
           </div>
           <div>
             <label for="tags">Tags</label>
-            <input type="text" id="tags" class="form-input">
+            <input type="text" id="tags" name="tags" class="form-input">
           </div>
-          <div>
             <input type="submit" value="Submit" class="submit-btn"> 
-          </div>
-          <div>
             <input type="button" value="Cancel" class="cancel-btn"> 
-          </div>
+
         </form>
       </div>
     </div>
@@ -71,8 +69,15 @@
     </ul>
   </script>
 
+  <script id="tagTemplate" type="text/x-handlebars">
+    {{#each tagged }}
+    <button>{{@key}} ({{this.length}})</button>
+    {{/each}}
+    <button></button>
+  </script>
+
   <script id="contactPartial" type="text/x-handlebars">
-    <li class="contact-card">
+    <li class="contact-card" data-id={{id}} data-tags={{tags}}>
       <h3>{{full_name}}</h3>
       <dl>
         <dt>Phone Number:</dt>
@@ -86,10 +91,10 @@
       <button class="delete-contact">Delete</button>
     </li>
   </script>
-  <script src="/javascripts/datastore.js"></script>
+  <script src="/javascripts/storage.js"></script>
   <script src="/javascripts/view.js"></script>
-  <script src="/javascripts/tag-list.js"></script>
   <script src="/javascripts/contacts.js"></script>
+  <script src="/javascripts/tags.js"></script>
   <script src="/javascripts/controller.js"></script>
   <script src="/javascripts/app.js"></script>
 </body>

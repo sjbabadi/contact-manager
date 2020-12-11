@@ -1,16 +1,14 @@
-(function(){
-  'use strict';
+class App {
+  constructor() {
+    this.storage = new Storage('/api/contacts');
+    this.view = new View();
+    this.tags = new Tags();
+    this.contacts = new Contacts(this.storage);
 
-  let app = window.app;
-
-  function ContactManager() {
-    this.storage = new app.DataStore();
-    this.view = new app.View();
-    this.contacts = new app.Contacts(this.storage);
-    this.controller = new app.Controller(this.contacts, this.view);
+    this.controller = new Controller(this.contacts, this.view, this.tags);
   }
+}
 
-  const cm = new ContactManager();
-
-
+(function(){
+  new App();
 })();
